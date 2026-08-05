@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duka Bora Wholesalers — Sales Dashboard | Esther Muinde</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.35.2/plotly.min.js"></script>
+<style>
+  :root{
+    --ink:#0F172A; --text:#475569; --soft:#94A3B8;
+    --bg:#F8FAFC; --card:#FFFFFF; --line:#E2E8F0;
+    --primary:#2563EB; --accent:#F59E0B; --green:#10B981;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  nav{background:var(--card);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+  nav a{color:var(--primary);text-decoration:none;font-weight:600;font-size:14px}
+  .logo{font-weight:700;color:var(--ink)}
+
+  .head{padding:34px 0 8px}
+  h1{color:var(--ink);font-size:26px}
+  .meta{font-size:14px;color:var(--soft);margin-top:4px}
+
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:14px;margin:24px 0}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .kpi .label{font-size:12px;font-weight:600;color:var(--soft);text-transform:uppercase;letter-spacing:.04em}
+  .kpi .value{font-size:24px;font-weight:700;color:var(--ink);margin-top:4px}
+  .kpi .delta{font-size:13px;font-weight:600;margin-top:2px}
+  .up{color:#15803D}
+
+  .charts{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 12px 6px}
+  .panel h3{font-size:15px;color:var(--ink);padding:0 8px 4px}
+  .chart{width:100%;height:300px}
+
+  .insight{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:12px;padding:20px 24px;margin-bottom:28px}
+  .insight h3{color:var(--ink);font-size:15px;margin-bottom:6px}
+  .insight p{font-size:15px}
+
+  .cta{background:var(--ink);border-radius:14px;color:#CBD5E1;padding:30px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:48px}
+  .cta h3{color:#fff;font-size:19px;margin-bottom:4px}
+  .btn{display:inline-block;background:var(--primary);color:#fff;padding:11px 24px;border-radius:8px;font-weight:600;text-decoration:none;white-space:nowrap}
+
+  @media(max-width:760px){ .charts{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">Esther Muinde · Demo</div>
+    <a href="index.html">← Back to portfolio</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="head">
+    <h1>Duka Bora Wholesalers — Sales Dashboard</h1>
+    <div class="meta">June – early August 2026 · demonstration with fictional data · exactly what a monthly client report looks like</div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="label">Revenue · July</div><div class="value">KES 334,045</div><div class="delta up">▲ 19.3% vs June</div></div>
+    <div class="kpi"><div class="label">Revenue · June</div><div class="value">KES 280,005</div></div>
+    <div class="kpi"><div class="label">August so far</div><div class="value">KES 50,760</div><div class="delta">first 4 days</div></div>
+    <div class="kpi"><div class="label">Sales · July</div><div class="value">258</div><div class="delta">avg KES 1,295 per sale</div></div>
+    <div class="kpi"><div class="label">M-Pesa share</div><div class="value">64.5%</div><div class="delta">of all revenue</div></div>
+  </div>
+
+  <div class="charts">
+    <div class="panel"><h3>Weekly revenue (KES) — complete weeks</h3><div id="weekly" class="chart"></div></div>
+    <div class="panel"><h3>Revenue by product (KES, full period)</h3><div id="products" class="chart"></div></div>
+    <div class="panel"><h3>Revenue by payment method</h3><div id="payments" class="chart"></div></div>
+    <div class="panel"><h3>Average daily revenue by weekday (KES)</h3><div id="dow" class="chart"></div></div>
+  </div>
+
+  <div class="insight">
+    <h3>What this means — the monthly note a client receives</h3>
+    <p>Revenue grew 19% in July and the trend is holding into August. Weekends earn the most per day — Saturday stock-outs are lost money, so restock Fridays. Maize flour and rice drive the most revenue; keep both stocked ahead of month-end. With 64.5% of revenue coming through M-Pesa, it's worth reviewing till tariffs — a small rate difference is real money at this volume.</p>
+  </div>
+
+  <div class="cta">
+    <div>
+      <h3>Want this for your business?</h3>
+      <div>Your first dashboard is free — one M-Pesa statement export is all it takes.</div>
+    </div>
+    <a class="btn" href="index.html#contact">Get your free dashboard</a>
+  </div>
+</div>
+
+<script>
+const D = {"weekly": {"labels": ["2026-06-01", "2026-06-08", "2026-06-15", "2026-06-22", "2026-06-29", "2026-07-06", "2026-07-13", "2026-07-20", "2026-07-27"], "values": [69320, 51010, 80470, 62880, 66580, 70820, 82265, 81645, 77340]}, "products": {"labels": ["Soda crate", "Tissue 10-pack", "Wheat flour 2kg", "Cooking oil 3L", "Bar soap (each)", "Sugar 2kg", "Rice 5kg", "Maize flour 2kg"], "values": [17980, 22250, 50400, 67080, 75335, 112520, 150450, 168795]}, "payments": {"labels": ["M-Pesa", "Bank transfer", "Cash"], "values": [428980, 36890, 198940]}, "dow": {"labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], "values": [10560, 8790, 8174, 8197, 9158, 12978, 13861]}};
+
+const font = {family:'-apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif', color:'#475569', size:12};
+const base = {font, paper_bgcolor:'rgba(0,0,0,0)', plot_bgcolor:'rgba(0,0,0,0)',
+  margin:{l:60,r:16,t:8,b:40}, hoverlabel:{bgcolor:'#0F172A',font:{color:'#fff',size:12}}};
+const cfg = {displayModeBar:false, responsive:true};
+const grid = '#EEF2F7';
+
+Plotly.newPlot('weekly', [{
+  x:D.weekly.labels, y:D.weekly.values, type:'scatter', mode:'lines+markers',
+  line:{color:'#2563EB', width:3}, marker:{size:7, color:'#2563EB'},
+  hovertemplate:'Week of %{x}<br>KES %{y:,.0f}<extra></extra>'
+}], {...base, xaxis:{gridcolor:grid, tickformat:'%b %d'}, yaxis:{gridcolor:grid, tickformat:',.0f', rangemode:'tozero'}}, cfg);
+
+Plotly.newPlot('products', [{
+  x:D.products.values, y:D.products.labels, type:'bar', orientation:'h',
+  marker:{color:'#2563EB'},
+  hovertemplate:'%{y}<br>KES %{x:,.0f}<extra></extra>'
+}], {...base, margin:{l:120,r:16,t:8,b:40}, xaxis:{gridcolor:grid, tickformat:',.0f'}, yaxis:{gridcolor:'rgba(0,0,0,0)'}}, cfg);
+
+Plotly.newPlot('payments', [{
+  labels:D.payments.labels, values:D.payments.values, type:'pie', hole:0.55,
+  marker:{colors:['#2563EB','#F59E0B','#10B981']},
+  textinfo:'percent', textfont:{size:13}, textposition:'inside',
+  hovertemplate:'%{label}<br>KES %{value:,.0f} (%{percent})<extra></extra>'
+}], {...base, showlegend:true, legend:{orientation:'h', y:-0.08, x:0.5, xanchor:'center'}, margin:{l:16,r:16,t:8,b:36}}, cfg);
+
+Plotly.newPlot('dow', [{
+  x:D.dow.labels, y:D.dow.values, type:'bar',
+  marker:{color:D.dow.values.map((v,i)=> i>=5 ? '#F59E0B' : '#2563EB')},
+  hovertemplate:'%{x}<br>KES %{y:,.0f} avg/day<extra></extra>'
+}], {...base, xaxis:{gridcolor:'rgba(0,0,0,0)'}, yaxis:{gridcolor:grid, tickformat:',.0f', rangemode:'tozero'}}, cfg);
+</script>
+
+</body>
+</html>
