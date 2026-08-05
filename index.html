@@ -5,68 +5,89 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Esther Muinde — Data Analyst | Dashboards for Kenyan SMEs</title>
 <meta name="description" content="I turn your M-Pesa statements and sales records into a monthly dashboard your business can act on. First dashboard free.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0F172A; --text:#475569; --soft:#94A3B8;
-    --bg:#F8FAFC; --card:#FFFFFF; --line:#E2E8F0;
-    --primary:#1a1a1a; --primary-dark:#000000; --accent:#7c3aed;
+    --bg:#09090D; --bg2:#0E0E15; --card:#12121C; --card2:#161624;
+    --line:#232336; --line-soft:#1B1B2A;
+    --text:#A6A4B8; --bright:#F2F0FA; --soft:#6E6C82;
+    --purple:#8B5CF6; --purple-light:#A78BFA; --fuchsia:#D946EF;
+    --grad:linear-gradient(100deg,#A78BFA 0%,#D946EF 100%);
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
-  a{color:var(--primary);text-decoration:none}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:15.5px}
+  h1,h2,h3,.logo{font-family:'Space Grotesk','Inter',-apple-system,sans-serif}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+  a{color:var(--purple-light);text-decoration:none}
 
-  nav{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
-  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
-  .logo{font-weight:700;color:var(--ink);font-size:17px}
-  .logo span{color:var(--primary)}
-  .btn{display:inline-block;background:var(--primary);color:#fff;padding:10px 22px;border-radius:8px;font-weight:600;font-size:15px}
-  .btn:hover{background:var(--primary-dark)}
-  .btn.ghost{background:transparent;color:var(--primary);border:1.5px solid var(--primary)}
+  nav{background:rgba(9,9,13,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft);position:sticky;top:0;z-index:10}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+  .logo{font-weight:700;color:var(--bright);font-size:18px;letter-spacing:-.01em}
+  .logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .btn{display:inline-block;background:var(--grad);color:#fff;padding:12px 26px;border-radius:10px;font-weight:600;font-size:15px;box-shadow:0 4px 24px rgba(139,92,246,.35);transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 6px 32px rgba(217,70,239,.45)}
+  .btn.ghost{background:transparent;color:var(--purple-light);border:1px solid var(--purple);box-shadow:none}
+  .btn.ghost:hover{background:rgba(139,92,246,.1)}
 
-  header{padding:72px 0 64px;background:linear-gradient(180deg,#EFF6FF 0%,var(--bg) 100%)}
-  .eyebrow{color:var(--primary);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
-  h1{color:var(--ink);font-size:clamp(30px,5vw,44px);line-height:1.15;margin:12px 0 18px;max-width:720px}
-  .sub{font-size:19px;max-width:640px;margin-bottom:28px}
+  header{position:relative;padding:96px 0 88px;overflow:hidden;background:var(--bg)}
+  header::before{content:"";position:absolute;inset:-40% -20% auto;height:130%;
+    background:radial-gradient(ellipse 60% 55% at 28% 20%,rgba(139,92,246,.22),transparent 65%),
+               radial-gradient(ellipse 45% 45% at 78% 10%,rgba(217,70,239,.14),transparent 60%);
+    pointer-events:none}
+  header .wrap{position:relative}
+  .eyebrow{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--purple-light);border:1px solid rgba(139,92,246,.4);background:rgba(139,92,246,.08);
+    padding:6px 14px;border-radius:99px;margin-bottom:22px}
+  h1{color:var(--bright);font-size:clamp(32px,5.2vw,50px);line-height:1.12;letter-spacing:-.02em;max-width:780px;font-weight:700}
+  h1 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{font-size:18px;max-width:640px;margin:22px 0 34px}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
 
-  section{padding:56px 0}
-  h2{color:var(--ink);font-size:26px;margin-bottom:8px}
-  .lede{margin-bottom:28px;max-width:640px}
-  .grid{display:grid;gap:20px}
-  .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-  .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px}
-  .card h3{color:var(--ink);font-size:17px;margin-bottom:8px}
-  .card p{font-size:15px}
-  .num{display:inline-flex;width:32px;height:32px;border-radius:50%;background:#EFF6FF;color:var(--primary);font-weight:700;align-items:center;justify-content:center;margin-bottom:12px}
+  section{padding:72px 0;border-top:1px solid var(--line-soft)}
+  section.alt{background:var(--bg2)}
+  h2{color:var(--bright);font-size:28px;letter-spacing:-.015em;margin-bottom:10px}
+  h2::after{content:"";display:block;width:44px;height:3px;border-radius:3px;background:var(--grad);margin-top:12px}
+  .lede{margin:18px 0 32px;max-width:620px}
+  .grid{display:grid;gap:18px}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;transition:border-color .2s,transform .2s}
+  .card:hover{border-color:rgba(139,92,246,.5);transform:translateY(-2px)}
+  .card h3{color:var(--bright);font-size:17.5px;margin-bottom:10px;font-weight:600}
+  .card p{font-size:14.5px}
+  .num{display:inline-flex;width:34px;height:34px;border-radius:10px;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.4);color:var(--purple-light);font-weight:700;align-items:center;justify-content:center;margin-bottom:14px}
 
   .demo-card{display:flex;flex-direction:column;gap:10px}
-  .tag{align-self:flex-start;font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px}
-  .tag.live{background:#DCFCE7;color:#15803D}
-  .tag.soon{background:#FEF3C7;color:#B45309}
-  .demo-card .btn{align-self:flex-start;margin-top:6px}
+  .tag{align-self:flex-start;font-size:11.5px;font-weight:700;letter-spacing:.08em;padding:4px 12px;border-radius:99px}
+  .tag.live{background:rgba(52,211,153,.12);color:#34D399;border:1px solid rgba(52,211,153,.4)}
+  .tag.soon{background:rgba(217,70,239,.1);color:#E879F9;border:1px solid rgba(217,70,239,.4)}
+  .demo-card .btn{align-self:flex-start;margin-top:8px}
 
-  .price-row{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  .free-banner{background:linear-gradient(100deg,rgba(139,92,246,.14),rgba(217,70,239,.10));border:1px solid rgba(139,92,246,.45);border-radius:14px;padding:20px 24px;margin:26px 0 22px;color:var(--bright);font-weight:500}
+  .price-row{display:flex;justify-content:space-between;gap:18px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
   .price-row:last-child{border-bottom:none}
-  .price-row .what{color:var(--ink);font-weight:600}
-  .price-row .amount{color:var(--primary);font-weight:700;white-space:nowrap}
-  .free-banner{background:#EFF6FF;border:1.5px dashed var(--primary);border-radius:12px;padding:18px 22px;margin-bottom:24px;color:var(--ink);font-weight:600}
+  .price-row .what{color:var(--bright);font-weight:600;font-family:'Space Grotesk',sans-serif}
+  .price-row .desc{font-size:14px}
+  .price-row .amount{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700;white-space:nowrap;font-size:16.5px}
 
-  footer{background:var(--ink);color:#CBD5E1;padding:56px 0;margin-top:24px}
-  footer h2{color:#fff}
-  footer a{color:#93C5FD}
-  .contact-links{display:flex;gap:22px;flex-wrap:wrap;margin-top:18px;font-size:16px}
-  .fineprint{margin-top:36px;font-size:13px;color:#64748B}
+  footer{position:relative;background:var(--bg2);border-top:1px solid var(--line-soft);padding:72px 0;overflow:hidden}
+  footer::before{content:"";position:absolute;inset:auto -10% -60% ;height:120%;
+    background:radial-gradient(ellipse 55% 50% at 60% 100%,rgba(139,92,246,.16),transparent 65%);pointer-events:none}
+  footer .wrap{position:relative}
+  footer h2::after{margin-left:0}
+  .contact-links{display:flex;gap:26px;flex-wrap:wrap;margin-top:22px;font-size:16px;font-weight:500}
+  .fineprint{margin-top:40px;font-size:13px;color:var(--soft)}
 
-  @media(max-width:640px){ header{padding:48px 0 40px} section{padding:40px 0} }
+  @media(max-width:640px){ header{padding:64px 0 56px} section{padding:52px 0} }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="wrap">
-    <div class="logo">Esther <span>Muinde</span></div>
+    <div class="logo">Esther <em>Muinde</em></div>
     <a class="btn" href="#contact">Get your free dashboard</a>
   </div>
 </nav>
@@ -74,7 +95,7 @@
 <header>
   <div class="wrap">
     <div class="eyebrow">Data analyst · Nairobi</div>
-    <h1>Your business already collects the data. I make it tell you what to do next.</h1>
+    <h1>Your business already collects the data. <span class="hl">I make it tell you what to do next.</span></h1>
     <p class="sub">Every month, I turn your M-Pesa statements and sales records into one clear dashboard — what sold, what's growing, where the money is — plus a 15-minute call on what to act on. No software to learn, no extra work for your staff.</p>
     <div class="hero-ctas">
       <a class="btn" href="duka-bora-dashboard.html">See a live demo dashboard</a>
@@ -95,7 +116,7 @@
   </div>
 </section>
 
-<section>
+<section class="alt">
   <div class="wrap">
     <h2>Live demos</h2>
     <p class="lede">Click through real, interactive dashboards — this is exactly what you receive.</p>
@@ -118,7 +139,7 @@
 <section>
   <div class="wrap">
     <h2>How it works</h2>
-    <div class="grid g3" style="margin-top:24px">
+    <div class="grid g3" style="margin-top:32px">
       <div class="card"><span class="num">1</span><h3>Share your records</h3><p>Email or WhatsApp me your M-Pesa statement export, till summary, or sales book photos. Takes you 5 minutes.</p></div>
       <div class="card"><span class="num">2</span><h3>I clean &amp; analyze</h3><p>I organize the data, check it, and build your dashboard. Your information stays confidential — always.</p></div>
       <div class="card"><span class="num">3</span><h3>You decide</h3><p>You get the dashboard plus a 15-minute walkthrough call: what happened, why, and the one thing to do next month.</p></div>
@@ -126,14 +147,14 @@
   </div>
 </section>
 
-<section id="pricing">
+<section id="pricing" class="alt">
   <div class="wrap">
     <h2>Pricing</h2>
     <div class="free-banner">Your first dashboard is free. Send one M-Pesa statement or sales export — if it's not useful, you've lost nothing.</div>
-    <div class="card">
-      <div class="price-row"><div><div class="what">Monthly reporting retainer</div><div>Dashboard + insights + walkthrough call, every month</div></div><div class="amount">KES 8,000–15,000 /mo</div></div>
-      <div class="price-row"><div><div class="what">One-off dashboard build</div><div>A single deep-dive on your sales history</div></div><div class="amount">KES 15,000–20,000</div></div>
-      <div class="price-row"><div><div class="what">Staff Excel training</div><div>Practical sessions for your team, at your premises or online</div></div><div class="amount">KES 2,500 /session</div></div>
+    <div class="card" style="padding:10px 28px">
+      <div class="price-row"><div><div class="what">Monthly reporting retainer</div><div class="desc">Dashboard + insights + walkthrough call, every month</div></div><div class="amount">KES 8,000–15,000 /mo</div></div>
+      <div class="price-row"><div><div class="what">One-off dashboard build</div><div class="desc">A single deep-dive on your sales history</div></div><div class="amount">KES 15,000–20,000</div></div>
+      <div class="price-row"><div><div class="what">Staff Excel training</div><div class="desc">Practical sessions for your team, at your premises or online</div></div><div class="amount">KES 2,500 /session</div></div>
     </div>
   </div>
 </section>
@@ -148,7 +169,7 @@
 <footer id="contact">
   <div class="wrap">
     <h2>Get your free dashboard</h2>
-    <p>Send one M-Pesa statement export and I'll return your first dashboard within 3 days — free, no strings.</p>
+    <p style="margin-top:18px">Send one M-Pesa statement export and I'll return your first dashboard within 3 days — free, no strings.</p>
     <div class="contact-links">
       <a href="mailto:muindendunge680@gmail.com">muindendunge680@gmail.com</a>
       <a href="https://wa.me/254714734472">WhatsApp me</a>
