@@ -6,7 +6,7 @@ Two files: `index.html` (landing page) and `duka-bora-dashboard.html` (live demo
 
 1. `index.html`: WhatsApp link `https://wa.me/254700000000` → your real number (format: 254XXXXXXXXX, no + or spaces).
 2. `index.html`: LinkedIn link `https://www.linkedin.com/in/REPLACE-ME` → your profile URL.
-3. Both files use your Avenews email. **Consider a personal address** (e.g. esther.analytics@gmail.com) — keeps side-hustle mail out of your work inbox and avoids awkwardness with your employer.
+3. Both files use your email. **Consider a personal address** (e.g. esther.analytics@gmail.com) — keeps side-hustle mail out of your work inbox and avoids awkwardness with your employer.
 
 ## Deploy to GitHub Pages (free, ~10 minutes)
 
