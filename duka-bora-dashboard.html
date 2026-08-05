@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Duka Bora Wholesalers — Sales Dashboard | Esther Muinde</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.35.2/plotly.min.js"></script>
+<script src="plotly.min.js"></script>
 <style>
   :root{
     --ink:#0F172A; --text:#475569; --soft:#94A3B8;
     --bg:#F8FAFC; --card:#FFFFFF; --line:#E2E8F0;
-    --primary:#2563EB; --accent:#F59E0B; --green:#10B981;
+    --primary:#1a1a1a; --accent:#7c3aed; --green:#5b21b6;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
@@ -102,26 +102,26 @@ const grid = '#EEF2F7';
 
 Plotly.newPlot('weekly', [{
   x:D.weekly.labels, y:D.weekly.values, type:'scatter', mode:'lines+markers',
-  line:{color:'#2563EB', width:3}, marker:{size:7, color:'#2563EB'},
+  line:{color:'#1a1a1a', width:3}, marker:{size:7, color:'#1a1a1a'},
   hovertemplate:'Week of %{x}<br>KES %{y:,.0f}<extra></extra>'
 }], {...base, xaxis:{gridcolor:grid, tickformat:'%b %d'}, yaxis:{gridcolor:grid, tickformat:',.0f', rangemode:'tozero'}}, cfg);
 
 Plotly.newPlot('products', [{
   x:D.products.values, y:D.products.labels, type:'bar', orientation:'h',
-  marker:{color:'#2563EB'},
+  marker:{color:'#1a1a1a'},
   hovertemplate:'%{y}<br>KES %{x:,.0f}<extra></extra>'
 }], {...base, margin:{l:120,r:16,t:8,b:40}, xaxis:{gridcolor:grid, tickformat:',.0f'}, yaxis:{gridcolor:'rgba(0,0,0,0)'}}, cfg);
 
 Plotly.newPlot('payments', [{
   labels:D.payments.labels, values:D.payments.values, type:'pie', hole:0.55,
-  marker:{colors:['#2563EB','#F59E0B','#10B981']},
+  marker:{colors:['#1a1a1a','#7c3aed','#5b21b6']},
   textinfo:'percent', textfont:{size:13}, textposition:'inside',
   hovertemplate:'%{label}<br>KES %{value:,.0f} (%{percent})<extra></extra>'
 }], {...base, showlegend:true, legend:{orientation:'h', y:-0.08, x:0.5, xanchor:'center'}, margin:{l:16,r:16,t:8,b:36}}, cfg);
 
 Plotly.newPlot('dow', [{
   x:D.dow.labels, y:D.dow.values, type:'bar',
-  marker:{color:D.dow.values.map((v,i)=> i>=5 ? '#F59E0B' : '#2563EB')},
+  marker:{color:D.dow.values.map((v,i)=> i>=5 ? '#7c3aed' : '#1a1a1a')},
   hovertemplate:'%{x}<br>KES %{y:,.0f} avg/day<extra></extra>'
 }], {...base, xaxis:{gridcolor:'rgba(0,0,0,0)'}, yaxis:{gridcolor:grid, tickformat:',.0f', rangemode:'tozero'}}, cfg);
 </script>
