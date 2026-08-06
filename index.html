@@ -3,181 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Esther Muinde — Data Analyst | Dashboards for Kenyan SMEs</title>
-<meta name="description" content="I turn your M-Pesa statements and sales records into a monthly dashboard your business can act on. First dashboard free.">
+<title>Esther Muinde — Data Analyst for Kenyan SMEs</title>
+<meta name="description" content="Esther Muinde turns M-Pesa statements and sales records into clear monthly dashboards for Kenyan SMEs.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#09090D; --bg2:#0E0E15; --card:#12121C; --card2:#161624;
-    --line:#232336; --line-soft:#1B1B2A;
-    --text:#A6A4B8; --bright:#F2F0FA; --soft:#6E6C82;
-    --purple:#8B5CF6; --purple-light:#A78BFA; --fuchsia:#D946EF;
-    --grad:linear-gradient(100deg,#A78BFA 0%,#D946EF 100%);
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'Inter',-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:15.5px}
-  h1,h2,h3,.logo{font-family:'Space Grotesk','Inter',-apple-system,sans-serif}
-  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
-  a{color:var(--purple-light);text-decoration:none}
-
-  nav{background:rgba(9,9,13,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft);position:sticky;top:0;z-index:10}
-  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
-  .logo{font-weight:700;color:var(--bright);font-size:18px;letter-spacing:-.01em}
-  .logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .btn{display:inline-block;background:var(--grad);color:#fff;padding:12px 26px;border-radius:10px;font-weight:600;font-size:15px;box-shadow:0 4px 24px rgba(139,92,246,.35);transition:transform .15s,box-shadow .15s}
-  .btn:hover{transform:translateY(-1px);box-shadow:0 6px 32px rgba(217,70,239,.45)}
-  .btn.ghost{background:transparent;color:var(--purple-light);border:1px solid var(--purple);box-shadow:none}
-  .btn.ghost:hover{background:rgba(139,92,246,.1)}
-
-  header{position:relative;padding:96px 0 88px;overflow:hidden;background:var(--bg)}
-  header::before{content:"";position:absolute;inset:-40% -20% auto;height:130%;
-    background:radial-gradient(ellipse 60% 55% at 28% 20%,rgba(139,92,246,.22),transparent 65%),
-               radial-gradient(ellipse 45% 45% at 78% 10%,rgba(217,70,239,.14),transparent 60%);
-    pointer-events:none}
-  header .wrap{position:relative}
-  .eyebrow{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--purple-light);border:1px solid rgba(139,92,246,.4);background:rgba(139,92,246,.08);
-    padding:6px 14px;border-radius:99px;margin-bottom:22px}
-  h1{color:var(--bright);font-size:clamp(32px,5.2vw,50px);line-height:1.12;letter-spacing:-.02em;max-width:780px;font-weight:700}
-  h1 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .sub{font-size:18px;max-width:640px;margin:22px 0 34px}
-  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
-
-  section{padding:72px 0;border-top:1px solid var(--line-soft)}
-  section.alt{background:var(--bg2)}
-  h2{color:var(--bright);font-size:28px;letter-spacing:-.015em;margin-bottom:10px}
-  h2::after{content:"";display:block;width:44px;height:3px;border-radius:3px;background:var(--grad);margin-top:12px}
-  .lede{margin:18px 0 32px;max-width:620px}
-  .grid{display:grid;gap:18px}
-  .g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-  .g2{grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;transition:border-color .2s,transform .2s}
-  .card:hover{border-color:rgba(139,92,246,.5);transform:translateY(-2px)}
-  .card h3{color:var(--bright);font-size:17.5px;margin-bottom:10px;font-weight:600}
-  .card p{font-size:14.5px}
-  .num{display:inline-flex;width:34px;height:34px;border-radius:10px;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.4);color:var(--purple-light);font-weight:700;align-items:center;justify-content:center;margin-bottom:14px}
-
-  .demo-card{display:flex;flex-direction:column;gap:10px}
-  .tag{align-self:flex-start;font-size:11.5px;font-weight:700;letter-spacing:.08em;padding:4px 12px;border-radius:99px}
-  .tag.live{background:rgba(52,211,153,.12);color:#34D399;border:1px solid rgba(52,211,153,.4)}
-  .tag.soon{background:rgba(217,70,239,.1);color:#E879F9;border:1px solid rgba(217,70,239,.4)}
-  .demo-card .btn{align-self:flex-start;margin-top:8px}
-
-  .free-banner{background:linear-gradient(100deg,rgba(139,92,246,.14),rgba(217,70,239,.10));border:1px solid rgba(139,92,246,.45);border-radius:14px;padding:20px 24px;margin:26px 0 22px;color:var(--bright);font-weight:500}
-  .price-row{display:flex;justify-content:space-between;gap:18px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
-  .price-row:last-child{border-bottom:none}
-  .price-row .what{color:var(--bright);font-weight:600;font-family:'Space Grotesk',sans-serif}
-  .price-row .desc{font-size:14px}
-  .price-row .amount{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700;white-space:nowrap;font-size:16.5px}
-
-  footer{position:relative;background:var(--bg2);border-top:1px solid var(--line-soft);padding:72px 0;overflow:hidden}
-  footer::before{content:"";position:absolute;inset:auto -10% -60% ;height:120%;
-    background:radial-gradient(ellipse 55% 50% at 60% 100%,rgba(139,92,246,.16),transparent 65%);pointer-events:none}
-  footer .wrap{position:relative}
-  footer h2::after{margin-left:0}
-  .contact-links{display:flex;gap:26px;flex-wrap:wrap;margin-top:22px;font-size:16px;font-weight:500}
-  .fineprint{margin-top:40px;font-size:13px;color:var(--soft)}
-
-  @media(max-width:640px){ header{padding:64px 0 56px} section{padding:52px 0} }
+:root{--canvas:#f3f5ef;--paper:#fbfcf8;--ink:#15211b;--muted:#647168;--line:#dce4d9;--green:#1e6b4c;--green-deep:#104936;--lime:#d7ed77;--warm:#f0b66c;--shadow:0 18px 50px rgba(21,33,27,.09)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;background:var(--canvas)}body{background:var(--canvas);color:var(--muted);font:15px/1.65 Manrope,Arial,sans-serif}h1,h2,h3,.logo{color:var(--ink);font-family:Manrope,Arial,sans-serif}a{color:inherit;text-decoration:none}.wrap{max-width:1120px;margin:auto;padding:0 28px}.mono{font:500 11px/1.4 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+nav{position:sticky;top:0;z-index:20;background:rgba(243,245,239,.9);border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}nav .wrap{height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-size:17px;font-weight:800;letter-spacing:-.04em}.logo span{color:var(--green)}.nav-links{display:flex;align-items:center;gap:24px;font-size:13px;font-weight:700;color:var(--ink)}.nav-links a:hover,.nav-links a:focus-visible{color:var(--green)}.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--green-deep);background:var(--green-deep);color:#fff;padding:12px 18px;border-radius:7px;font-size:13px;font-weight:800;transition:transform .2s,background .2s,box-shadow .2s}.nav-cta:hover,.btn:hover{background:var(--green);transform:translateY(-2px);box-shadow:0 8px 22px rgba(16,73,54,.2)}.btn.alt{background:transparent;color:var(--green-deep);border-color:var(--green)}.btn.alt:hover{background:#e4eedf;box-shadow:none}
+.hero{padding:92px 0 76px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}.hero:after{content:'ESTHER / DATA / ACTION';position:absolute;right:-45px;bottom:34px;transform:rotate(-90deg);font:500 10px 'DM Mono',monospace;letter-spacing:.18em;color:#b7c6b6}.hero-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(280px,.82fr);gap:80px;align-items:end}.eyebrow{display:flex;align-items:center;gap:9px;margin-bottom:22px}.eyebrow:before{content:'';width:30px;height:2px;background:var(--green)}h1{max-width:760px;font-size:clamp(42px,6.3vw,78px);line-height:1.02;letter-spacing:-.075em;font-weight:800}h1 em{font-style:normal;color:var(--green)}.hero-copy{max-width:520px;font-size:17px;margin-top:26px}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}.hero-note{border-left:2px solid var(--warm);padding:4px 0 4px 18px;font-size:13px}.hero-note strong{display:block;color:var(--ink);font-size:15px;margin-bottom:5px}.stamp{display:inline-flex;align-items:center;justify-content:center;width:132px;height:132px;border:1px solid var(--green);border-radius:50%;color:var(--green);font:500 11px/1.4 'DM Mono',monospace;text-align:center;transform:rotate(10deg);margin-bottom:42px}
+section{padding:78px 0;border-bottom:1px solid var(--line)}section.soft{background:#e9efe6}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:start;margin-bottom:34px}.section-head h2{max-width:570px;font-size:clamp(28px,4vw,43px);line-height:1.08;letter-spacing:-.06em}.section-head p{max-width:390px}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.service{background:var(--paper);border:1px solid var(--line);padding:26px;min-height:230px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s,border-color .2s;box-shadow:0 5px 18px rgba(21,33,27,.025)}.service:hover{transform:translateY(-4px);border-color:var(--green)}.service h3{font-size:20px;letter-spacing:-.04em}.service p{font-size:14px}.service .index{color:var(--green);font:500 12px 'DM Mono',monospace}
+.case-study{display:grid;grid-template-columns:.8fr 1.2fr;gap:42px;align-items:center}.case-copy h2{font-size:clamp(30px,4.5vw,50px);line-height:1.05;letter-spacing:-.065em;margin:14px 0 18px}.case-copy p{max-width:440px}.case-link{display:inline-flex;color:var(--green-deep);font-weight:800;margin-top:26px;border-bottom:1px solid var(--green);padding-bottom:4px}.dashboard-preview{background:var(--green-deep);padding:18px;box-shadow:var(--shadow);transform:rotate(1.5deg)}.preview-top{display:flex;justify-content:space-between;align-items:center;color:#dcebdd;border-bottom:1px solid rgba(255,255,255,.15);padding:6px 4px 16px}.preview-top strong{font-size:15px}.preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}.preview-kpi{background:rgba(255,255,255,.08);padding:13px 10px}.preview-kpi small{display:block;color:#b9cfbe;font:10px 'DM Mono',monospace}.preview-kpi b{display:block;color:#fff;font-size:18px;margin-top:5px}.bars{height:140px;background:linear-gradient(180deg,transparent 49%,rgba(255,255,255,.1) 50%,transparent 51%),linear-gradient(90deg,transparent 49%,rgba(255,255,255,.07) 50%,transparent 51%);display:flex;align-items:end;justify-content:space-around;padding:10px 18px 0}.bar{width:8%;background:var(--lime);height:var(--h);opacity:.9}.bar:nth-child(2n){background:#82c3a1}.preview-foot{color:#b9cfbe;border-top:1px solid rgba(255,255,255,.15);padding:13px 4px 2px;font-size:11px}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}.step{border-top:2px solid var(--green);padding-top:16px}.step b{display:block;color:var(--green);font:500 12px 'DM Mono',monospace;margin-bottom:24px}.step h3{font-size:19px;margin-bottom:9px}.pricing{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:start}.pricing h2{font-size:clamp(30px,4vw,45px);line-height:1.05;letter-spacing:-.06em}.price-card{background:var(--paper);border:1px solid var(--line);padding:8px 24px;box-shadow:var(--shadow)}.price-row{display:flex;justify-content:space-between;gap:20px;padding:19px 0;border-bottom:1px solid var(--line)}.price-row:last-child{border:0}.price-row strong{color:var(--ink)}.price-row span{color:var(--green);font-weight:800;white-space:nowrap}.about-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:50px}.about-grid h2{font-size:clamp(30px,4vw,45px);line-height:1.05;letter-spacing:-.06em}.about-copy{max-width:620px}.about-copy p+p{margin-top:16px}.contact{background:var(--green-deep);color:#c8dccd;padding:86px 0}.contact h2{color:#fff;font-size:clamp(37px,6vw,70px);line-height:1;letter-spacing:-.07em;max-width:700px}.contact p{max-width:520px;margin-top:20px}.contact-links{display:flex;flex-wrap:wrap;gap:18px;margin-top:30px}.contact-links a{color:#fff;border-bottom:1px solid #9fcbac;padding-bottom:3px;font-weight:700}.fineprint{margin-top:58px;color:#9fbaaa;font:11px 'DM Mono',monospace}
+:focus-visible{outline:3px solid var(--warm);outline-offset:4px}@media(max-width:760px){.nav-links{display:none}.wrap{padding:0 20px}.hero{padding:64px 0}.hero-grid,.case-study,.pricing,.about-grid{grid-template-columns:1fr;gap:35px}.stamp{margin:0}.hero:after{display:none}.section-head{display:block}.section-head p{margin-top:15px}.service-grid,.process-grid{grid-template-columns:1fr}.dashboard-preview{transform:none}.preview-grid{grid-template-columns:1fr 1fr}.preview-kpi:last-child{display:none}.price-row{display:block}.price-row span{display:block;margin-top:7px}}
 </style>
 </head>
 <body>
-
-<nav>
-  <div class="wrap">
-    <div class="logo">Esther <em>Muinde</em></div>
-    <a class="btn" href="#contact">Get your free dashboard</a>
-  </div>
-</nav>
-
-<header>
-  <div class="wrap">
-    <div class="eyebrow">Monthly dashboards for Kenyan SMEs · Nairobi</div>
-    <h1>Turn your M-Pesa statements into clear actions. <span class="hl">Monthly dashboards that grow sales and prevent stockouts.</span></h1>
-    <p class="sub">Each month I clean your sales data and deliver one concise dashboard: revenue trends, best sellers, busiest days and payment mix — plus a 15‑minute call with one concrete recommendation. First dashboard free; no software or extra staff time required.</p>
-    <div class="hero-ctas">
-      <a class="btn" href="duka-bora-dashboard.html">See a live demo dashboard</a>
-      <a class="btn ghost" href="#pricing">Pricing</a>
-    </div>
-  </div>
-</header>
-
-<section>
-  <div class="wrap">
-    <h2>What you get every month</h2>
-    <p class="lede">A focus-driven report for busy owners — wholesalers, retailers, salons, clinics and hardware stores. Practical numbers, plain-language actions, and one change to try next month.</p>
-    <div class="grid g3">
-      <div class="card"><h3>One clear dashboard</h3><p>Revenue, growth, best sellers, payment mix and busiest days — from the records you already keep: M-Pesa statements, till summaries, even a photo of the sales book.</p></div>
-      <div class="card"><h3>Plain-language insights</h3><p>Not just charts. Each report names what grew, what stalled, and one concrete action for next month — in words, not jargon.</p></div>
-      <div class="card"><h3>Your records, organized</h3><p>Your sales history cleaned and kept safe month after month. No more lost notebooks or scrolling through SMS to answer "how did March go?"</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <h2>Live demos</h2>
-    <p class="lede">Click through real, interactive dashboards — this is exactly what you receive.</p>
-    <div class="grid g2">
-      <div class="card demo-card">
-        <span class="tag live">LIVE</span>
-        <h3>Wholesale shop — monthly sales dashboard</h3>
-        <p>Three months of sales for a Nairobi wholesaler: weekly revenue trend, product ranking, M-Pesa vs cash split and busiest days. (Fictional data.)</p>
-        <a class="btn" href="duka-bora-dashboard.html">Open the dashboard</a>
-      </div>
-      <div class="card demo-card">
-        <span class="tag soon">COMING SOON</span>
-        <h3>M-Pesa statement analyzer</h3>
-        <p>A personal M-Pesa statement turned into a spending dashboard — where the money goes, month by month. Built from a real (anonymized) statement.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>How it works</h2>
-    <div class="grid g3" style="margin-top:32px">
-      <div class="card"><span class="num">1</span><h3>Share your records</h3><p>Email or WhatsApp me your M-Pesa statement export, till summary, or sales book photos. Takes you 5 minutes.</p></div>
-      <div class="card"><span class="num">2</span><h3>I clean &amp; analyze</h3><p>I organize the data, check it, and build your dashboard. Your information stays confidential — always.</p></div>
-      <div class="card"><span class="num">3</span><h3>You decide</h3><p>You get the dashboard plus a 15-minute walkthrough call: what happened, why, and the one thing to do next month.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="pricing" class="alt">
-  <div class="wrap">
-    <h2>Pricing</h2>
-    <div class="free-banner">First dashboard free — send one M-Pesa export. If it doesn't help you increase sales or save costs, you pay nothing.</div>
-    <div class="card" style="padding:10px 28px">
-      <div class="price-row"><div><div class="what">Monthly reporting retainer</div><div class="desc">Dashboard + insights + walkthrough call, every month</div></div><div class="amount">KES 8,000–15,000 /mo</div></div>
-      <div class="price-row"><div><div class="what">One-off dashboard build</div><div class="desc">A single deep-dive on your sales history</div></div><div class="amount">KES 15,000–20,000</div></div>
-      <div class="price-row"><div><div class="what">Staff Excel training</div><div class="desc">Practical sessions for your team, at your premises or online</div></div><div class="amount">KES 2,500 /session</div></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>About me</h2>
-    <p class="lede" style="margin-bottom:0">I'm Esther Muinde, a data analyst working in fintech in Nairobi, where I analyze business data every day. On the side, I bring the same tools to small and medium businesses — because the corner wholesaler deserves the same clarity about their numbers as any bank.</p>
-  </div>
-</section>
-
-<footer id="contact">
-  <div class="wrap">
-    <h2>Get your free dashboard</h2>
-    <p style="margin-top:18px">Send one M-Pesa statement export and I'll return your first dashboard within 3 days — free, no strings.</p>
-    <div class="contact-links">
-      <a href="mailto:muindendunge680@gmail.com">muindendunge680@gmail.com</a>
-      <a href="https://wa.me/254714734472">WhatsApp me</a>
-      <a href="https://www.linkedin.com/in/esther-ndunge-0b1535196/">LinkedIn</a>
-    </div>
-    <p class="fineprint">Demo dashboards use fictional data. Client data is always kept confidential and never published.</p>
-  </div>
-</footer>
-
+<nav><div class="wrap"><a class="logo" href="#top">Esther <span>Muinde</span></a><div class="nav-links"><a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a></div><a class="nav-cta" href="#contact">Start a project</a></div></nav>
+<main id="top">
+<header class="hero"><div class="wrap hero-grid"><div><div class="eyebrow mono">Data analyst · Nairobi, Kenya</div><h1>Make better decisions with <em>numbers you can use.</em></h1><p class="hero-copy">I turn M-Pesa statements, sales records, and messy spreadsheets into focused dashboards that show what changed, why it matters, and what to do next.</p><div class="hero-actions"><a class="btn" href="#contact">Get a free first dashboard <span>↗</span></a><a class="btn alt" href="duka-bora-dashboard.html">View live dashboard</a></div></div><div><div class="stamp">CLARITY<br>OVER<br>COMPLEXITY</div><div class="hero-note"><strong>Built for growing Kenyan businesses.</strong>Practical reporting for owners who need less spreadsheet work and more confidence in the next move.</div></div></div></header>
+<section id="services"><div class="wrap"><div class="section-head"><div><div class="mono">01 / What I do</div><h2>Useful analysis, not impressive-looking noise.</h2></div><p>Every engagement ends with a clear view of your business and an action you can actually take.</p></div><div class="service-grid"><article class="service"><span class="index">A / 01</span><div><h3>Monthly dashboards</h3><p>Revenue, best sellers, payment mix, and trends cleaned into one readable monthly report.</p></div></article><article class="service"><span class="index">A / 02</span><div><h3>Sales analysis</h3><p>Find the products, days, and customer patterns that are moving your business forward.</p></div></article><article class="service"><span class="index">A / 03</span><div><h3>Excel systems & training</h3><p>Simple, dependable tools your team can own — with practical training, not jargon.</p></div></article></div></div></section>
+<section id="work" class="soft"><div class="wrap case-study"><div class="case-copy"><div class="mono">02 / Featured work</div><h2>Duka Bora can see the week before it ends.</h2><p>A fictional Nairobi wholesaler dashboard showing how raw sales records become a weekly revenue trend, product ranking, payment mix, and a specific stock recommendation.</p><a class="case-link" href="duka-bora-dashboard.html">Open the interactive case study ↗</a></div><a class="dashboard-preview" href="duka-bora-dashboard.html" aria-label="Open Duka Bora interactive dashboard"><div class="preview-top"><strong>Duka Bora / Sales pulse</strong><span class="mono" style="color:#d7ed77">JUL 2026</span></div><div class="preview-grid"><div class="preview-kpi"><small>Revenue</small><b>KES 334k</b></div><div class="preview-kpi"><small>Growth</small><b style="color:#d7ed77">+19.3%</b></div><div class="preview-kpi"><small>M-Pesa</small><b>64.5%</b></div></div><div class="bars"><i class="bar" style="--h:42%"></i><i class="bar" style="--h:56%"></i><i class="bar" style="--h:48%"></i><i class="bar" style="--h:69%"></i><i class="bar" style="--h:62%"></i><i class="bar" style="--h:83%"></i><i class="bar" style="--h:76%"></i><i class="bar" style="--h:92%"></i></div><div class="preview-foot">Saturday is the strongest day. Restock on Friday.</div></a></div></section>
+<section id="process"><div class="wrap"><div class="section-head"><div><div class="mono">03 / How it works</div><h2>From records to a next move.</h2></div><p>No new software. No complicated setup. Just a lightweight reporting rhythm that fits how you already work.</p></div><div class="process-grid"><article class="step"><b>STEP 01</b><h3>Share your records</h3><p>Send an M-Pesa export, till summary, spreadsheet, or photos of the sales book.</p></article><article class="step"><b>STEP 02</b><h3>I clean & analyze</h3><p>I organize the data, check the numbers, and build a focused view of performance.</p></article><article class="step"><b>STEP 03</b><h3>You decide</h3><p>You receive the dashboard and a short walkthrough with one practical recommendation.</p></article></div></div></section>
+<section><div class="wrap pricing"><div><div class="mono">04 / Simple pricing</div><h2>Start small. See the value.</h2><p style="margin-top:20px;max-width:410px">Your first dashboard is free. If it doesn't help you see your business more clearly, you pay nothing.</p></div><div class="price-card"><div class="price-row"><div><strong>Monthly reporting</strong><small style="display:block">Dashboard + insights + call</small></div><span>KES 8k–15k /mo</span></div><div class="price-row"><div><strong>One-off dashboard</strong><small style="display:block">Deep-dive on sales history</small></div><span>KES 15k–20k</span></div><div class="price-row"><div><strong>Excel training</strong><small style="display:block">Practical team session</small></div><span>KES 2,500</span></div></div></div></section>
+<section id="about" class="soft"><div class="wrap about-grid"><div><div class="mono">05 / About Esther</div><h2>The person behind the numbers.</h2></div><div class="about-copy"><p>I'm Esther Muinde, a data analyst working in fintech in Nairobi. I analyze business data every day and bring that same discipline to small and medium businesses.</p><p>The corner wholesaler deserves the same clarity about their numbers as any bank. My job is to make that clarity straightforward, useful, and easy to act on.</p></div></div></section>
+</main>
+<footer id="contact" class="contact"><div class="wrap"><div class="mono" style="color:#d7ed77">06 / Let’s work together</div><h2>Ready to know what your numbers are saying?</h2><p>Send one M-Pesa statement export and I'll return your first dashboard within 3 days — free, no strings.</p><div class="contact-links"><a href="mailto:muindendunge680@gmail.com">Email me</a><a href="https://wa.me/254714734472" target="_blank" rel="noopener noreferrer">WhatsApp me ↗</a><a href="https://www.linkedin.com/in/esther-ndunge-0b1535196/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div><p class="fineprint">Demo dashboards use fictional data. Client data is always kept confidential and never published.</p></div></footer>
 </body>
 </html>
